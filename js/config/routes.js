@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('TPMS')
+  angular.module("TPMS")
     .config(MainRouter);
 
   MainRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
