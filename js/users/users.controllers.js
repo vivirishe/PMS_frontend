@@ -2,21 +2,21 @@
   'use strict';
   angular.module('TPMS')
     .controller('UserListController', UserListController)
-    // .controller('UserNewController', UserNewController)
-    // .controller('UserShowController', UserShowController)
-    // .controller('UserEditController', UserEditController);
+    .controller('UserNewController', UserNewController)
+    .controller('UserShowController', UserShowController)
+    .controller('UserEditController', UserEditController);
 
   UserListController.$inject = ['UserResource'];
-  // UserNewController.$inject = ['UserResource', '$state'];
-  // UserShowController.$inject = ['UserResource', '$stateParams'];
-  // UserEditController.$inject = ['UserResource', '$state', '$stateParams'];
+  UserNewController.$inject = ['UserResource', '$state'];
+  UserShowController.$inject = ['UserResource', '$stateParams'];
+  UserEditController.$inject = ['UserResource', '$state', '$stateParams'];
 
   function UserListController(UserResource) {
     var vm = this;
     vm.users = [];
-    vm.deleteUser = deleteUser;
+    vam.deleteUser = deleteUser;
 
-    UserResource.query().$promise.then( function(data) {
+    UserResource.query().$promise.then(function(data) {
       vm.users = data;
     });
 
@@ -27,9 +27,9 @@
           vm.users = vm.users.filter(function(user) {
             return user != userToDelete;
           });
-        }
+        };
       });
-    }
+    };
   };
 
   function UserNewController(UserResource, $state) {
@@ -42,8 +42,8 @@
         vm.newUser = {};
         $state.go('usersList')
       });
-    }
-  }
+    };
+  };
 
   function UserShowController(UserResource, $stateParams) {
     var vm = this;
@@ -56,7 +56,7 @@
       UserResource.update(vm.user).$promise.then(function(editedUser) {
         vm.user = editedUser;
         $state.go('usersList')
-      })
-    }
-  }
+      });
+    };
+  };
 }());
