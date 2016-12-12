@@ -3,13 +3,13 @@
   angular.module('TPMS')
     .controller('UserListController', UserListController)
     .controller('UserNewController', UserNewController)
-    // .controller('UserShowController', UserShowController)
-    // .controller('UserEditController', UserEditController);
+    .controller('UserShowController', UserShowController)
+    .controller('UserEditController', UserEditController);
 
   UserListController.$inject = ['UserResource'];
   UserNewController.$inject = ['UserResource', '$state'];
-  // UserShowController.$inject = ['UserResource', '$stateParams'];
-  // UserEditController.$inject = ['UserResource', '$state', '$stateParams'];
+  UserShowController.$inject = ['UserResource', '$stateParams'];
+  UserEditController.$inject = ['UserResource', '$state', '$stateParams'];
 
   function UserListController(UserResource) {
     var vm = this;
@@ -27,9 +27,9 @@
           vm.users = vm.users.filter(function(user) {
             return user != userToDelete;
           });
-        }
+        };
       });
-    }
+    };
   };
 
   function UserNewController(UserResource, $state) {
@@ -42,8 +42,8 @@
         vm.newUser = {};
         $state.go('allUsers')
       });
-    }
-  }
+    };
+  };
 
   function UserShowController(UserResource, $stateParams) {
     var vm = this;
@@ -52,11 +52,22 @@
     UserResource.get({id: $stateParams.id}).$promise.then(function(jsonUser) {
       vm.user = jsonUser;
     });
+  };
+
+  function UserEditController(UserResource, $state, $stateParams) {
+    var vm = this;
+    vm.user = {};
+    vm.updateUser = updateUser;
+
+    UserResource.get({id: $stateParams.id}).$promise.then(function(jsonUser) {
+      vm.user = jsonUser;
+    });
+
     function updateUser() {
       UserResource.update(vm.user).$promise.then(function(editedUser) {
         vm.user = editedUser;
-        $state.go('allUsers')
-      })
-    }
-  }
+        $state.go('allUsers');
+      });
+    };
+  };
 }());

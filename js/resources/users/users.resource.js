@@ -27,5 +27,11 @@
       controller: 'UserNewController',
       controllerAs: 'userNewVm'
     })
+    .state('editUser', {
+      url: '/users/edit/:id',
+      templateUrl: 'js/resources/users/user-edit.html',
+      controller: 'UserEditController',
+      controllerAs: 'userEditVm'
+    })
   }
 }());

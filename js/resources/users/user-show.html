@@ -4,7 +4,7 @@
     {{user.email}} -
     {{user.typeOfUser}} <br>
     <button ng-click="usersVm.deleteUser(user)">Delete</button>
-    <button ng-click="">Edit</button>
+    <a ui-sref="editUser({id: user._id})">Edit</a>
     <p>==============</p>
   </li>
 </ul>

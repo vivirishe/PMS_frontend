@@ -1,0 +1,18 @@
+<h3>Edit User</h3>
+<form ng-submit="userEditVm.updateUser()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" ng-model="userEditVm.user.name">
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" id="email" ng-model="userEditVm.user.email">
+  </div>
+  <div>
+    <label for="typeOfUser">PM: </label>
+    <input type="checkbox" id="typeOfUser" ng-model="userEditVm.user.typeOfUser">
+  </div>
+  <div>
+    <input type="submit" value="Edit User">
+  </div>
+</form>
