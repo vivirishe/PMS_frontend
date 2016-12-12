@@ -2,12 +2,12 @@
   'use strict';
   angular.module('TPMS')
     .controller('UserListController', UserListController)
-    // .controller('UserNewController', UserNewController)
+    .controller('UserNewController', UserNewController)
     // .controller('UserShowController', UserShowController)
     // .controller('UserEditController', UserEditController);
 
   UserListController.$inject = ['UserResource'];
-  // UserNewController.$inject = ['UserResource', '$state'];
+  UserNewController.$inject = ['UserResource', '$state'];
   // UserShowController.$inject = ['UserResource', '$stateParams'];
   // UserEditController.$inject = ['UserResource', '$state', '$stateParams'];
 
@@ -40,7 +40,7 @@
     function addUser() {
       UserResource.save(vm.newUser).$promise.then(function(jsonUser) {
         vm.newUser = {};
-        $state.go('usersList')
+        $state.go('allUsers')
       });
     }
   }
@@ -55,7 +55,7 @@
     function updateUser() {
       UserResource.update(vm.user).$promise.then(function(editedUser) {
         vm.user = editedUser;
-        $state.go('usersList')
+        $state.go('allUsers')
       })
     }
   }

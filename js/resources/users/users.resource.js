@@ -15,15 +15,17 @@
     $urlRouterProvider.otherwise("/");
 
     $stateProvider
-    .state('users', {
+    .state('allUsers', {
       url: '/users',
       templateUrl: 'js/resources/users/user-show.html',
       controller: 'UserListController',
       controllerAs: 'usersVm'
     })
-    // .state('new', {
-    //   url: '/users/new',
-    //   templateUrl: ''
-    // })
+    .state('newUser', {
+      url: '/users/new',
+      templateUrl: 'js/resources/users/user-new.html',
+      controller: 'UserNewController',
+      controllerAs: 'userNewVm'
+    })
   }
 }());

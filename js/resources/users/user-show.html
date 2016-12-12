@@ -1,7 +1,10 @@
 <ul>
   <li ng-repeat="user in usersVm.users">
-    {{user.name}} - 
+    {{user.name}} -
     {{user.email}} -
-    {{user.typeOfUser}}
+    {{user.typeOfUser}} <br>
+    <button ng-click="usersVm.deleteUser(user)">Delete</button>
+    <button ng-click="">Edit</button>
+    <p>==============</p>
   </li>
 </ul>
