@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Hello {{usersVm.currentUser.name}}!</h2>
+
+  <ul>
+    <li ng-repeat="user in usersVm.users">
+      Name: {{user.name}} <br>
+      Email: {{user.email}} <br>
+      PM: {{user.typeOfUser}} <br>
+      <button ng-click="usersVm.deleteUser(user)">Delete</button>
+      <a ui-sref="editUser({id: user._id})">Edit</a>
+      <p>==============</p>
+    </li>
+  </ul>
+</div>
