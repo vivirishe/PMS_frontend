@@ -10,7 +10,7 @@
   <body>
     <header ng-controller="NavbarController as navVm">
       <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
+        <div class="navbar">
           <a ng-hide="navVm.authService.isLoggedIn()" ui-sref="login" class="navbar-brand">| Log In </a>
           <a ng-show="navVm.authService.isLoggedIn()" ui-sref="login" ng-click="navVm.authService.logOut()" class="navbar-brand">Log Out</a>
           <a ng-hide="navVm.authService.isLoggedIn()" ui-sref="newUser" class="navbar-brand"> Sign Up |</a>
