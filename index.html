@@ -3,10 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Telecom PM Software</title>
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-
-    <div ui-view></div>
+    <header ng-controller="NavbarController as navVm">
+      <div ui-view></div>
+    </header>
 
     <script src="js/auth/jwt-decode.2.0.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
@@ -24,5 +27,6 @@
     <script src="js/auth/auth.service.js"></script>
     <script src="js/auth/token.service.js"></script>
     <script src="js/resources/signin/signin.controller.js"></script>
+    <script src="js/resources/signin/navbar.controller.js"></script>
   </body>
 </html>

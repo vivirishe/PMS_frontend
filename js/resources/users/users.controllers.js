@@ -15,6 +15,7 @@
     var vm = this;
     vm.users = [];
     vm.deleteUser = deleteUser;
+    
 
     UserResource.query().$promise.then( function(data) {
       vm.users = data;
