@@ -6,19 +6,20 @@
     .controller('UserShowController', UserShowController)
     .controller('UserEditController', UserEditController);
 
-  UserListController.$inject = ['UserResource'];
+  UserListController.$inject = ['UserResource', '$window', 'authService'];
   UserNewController.$inject = ['UserResource', '$state', 'authService'];
   UserShowController.$inject = ['UserResource', '$stateParams'];
   UserEditController.$inject = ['UserResource', '$state', '$stateParams'];
 
-  function UserListController(UserResource) {
+  function UserListController(UserResource, $window, authService) {
     var vm = this;
     vm.users = [];
     vm.deleteUser = deleteUser;
-    
+    vm.currentUser = authService.currentUser();
 
     UserResource.query().$promise.then( function(data) {
       vm.users = data;
+      console.log(vm.currentUser.data)
     });
 
     function deleteUser(userToDelete) {

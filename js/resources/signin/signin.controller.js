@@ -3,9 +3,9 @@
   angular.module("TPMS")
     .controller("SignInController", SignInController);
 
-  SignInController.$inject = ["$log", "authService", "UserResource", "$state"];
+  SignInController.$inject = ["$log", "authService", "UserResource", "$state", "$window"];
 
-  function SignInController($log, authService, UserResource, $state) {
+  function SignInController($log, authService, UserResource, $state, $window) {
     var vm = this;
 
     //BINDINGS
@@ -22,6 +22,7 @@
         .then(
           function(decodedToken) {
             $log.info('Logged in!', decodedToken);
+
             $state.go('allUsers');
           },
           //on Error

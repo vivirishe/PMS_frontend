@@ -9,7 +9,19 @@
   </head>
   <body>
     <header ng-controller="NavbarController as navVm">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <a ng-hide="navVm.authService.isLoggedIn()" ui-sref="login" class="navbar-brand">| Log In </a>
+          <a ng-show="navVm.authService.isLoggedIn()" ui-sref="login" ng-click="navVm.authService.logOut()" class="navbar-brand">Log Out</a>
+          <a ng-hide="navVm.authService.isLoggedIn()" ui-sref="newUser" class="navbar-brand"> Sign Up |</a>
+          <a ng-show="navVm.authService.isLoggedIn()" ui-sref="allUsers" class="btn btn-default navbar-btn navbar-right">See all users</a>
+          <a ng-show="navVm.authService.isLoggedIn()" ui-sref="newUser" class="btn btn-default navbar-btn navbar-right">Add User</a>
+          <a ng-show="navVm.authService.isLoggedIn()" ui-sref="allProjects" class="btn btn-default navbar-btn navbar-right">See all Projects</a>
+          <a ng-show="navVm.authService.isLoggedIn()" ui-sref="newProject" class="btn btn-default navbar-btn navbar-right">Add Project</a>
+        </div>
+      </nav>
       <div ui-view></div>
+
     </header>
 
     <script src="js/auth/jwt-decode.2.0.1.js"></script>

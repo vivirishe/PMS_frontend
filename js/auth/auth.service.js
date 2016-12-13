@@ -10,13 +10,22 @@
   function authService($log, token, $http) {
     $log.info("auth service loaded!");
 
+    var current;
+
     var service = {
       logIn:      logIn,
       isLoggedIn: isLoggedIn,
-      logOut:     logOut
+      logOut:     logOut,
+      currentUser: currentUser
     };
     return service;
 
+    function currentUser() {
+      if(isLoggedIn()) {
+        return token.decode();
+      }
+    }
+    
     function isLoggedIn() {
       return (token.retrieve() != null);
     }
@@ -39,12 +48,12 @@
         // calling the above success handler
         // , function(err) { null; }
       );
-
       return promise;
     }
     function logOut() {
       token.destroy();
     }
   }
+
 
 })();
