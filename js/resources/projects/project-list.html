@@ -1,0 +1,11 @@
+<h3>Projects</h3>
+<ul ng-repeat="project in projectListVm.projects">
+  <li>
+    Name: {{project.name}} <br>
+    Description: {{project.description}} <br>
+    Tasks: {{project.tasks}} <br>
+    <button ng-click="projectsVm.deleteProject(project)">Delete</button>
+    <a ui-sref="editProject({id: project._id})">Edit</a>
+    <p>==============</p>
+  </li>
+</ul>

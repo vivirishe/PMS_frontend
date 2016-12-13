@@ -16,9 +16,21 @@
     $stateProvider
     .state('allProjects', {
       url: '/projects',
-      templateUrl: 'js/resources/projects/projects-list.html',
-      controller:
-      controllerAs:
+      templateUrl: 'js/resources/projects/project-list.html',
+      controller: 'ProjectListController',
+      controllerAs: 'projectListVm'
+    })
+    .state('newProject', {
+      url: '/projects/new',
+      templateUrl: 'js/resources/projects/project-new.html',
+      controller: 'ProjectNewController',
+      controllerAs: 'projectNewVm'
+    })
+    .state('editProject', {
+      url: '/projects/edit/:id',
+      templateUrl: 'js/resources/projects/project-edit.html',
+      controller: 'ProjectEditController',
+      controllerAs: 'projectEditVm'
     })
   }
 }());

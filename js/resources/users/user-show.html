@@ -3,9 +3,9 @@
 
 <ul>
   <li ng-repeat="user in usersVm.users">
-    {{user.name}} -
-    {{user.email}} -
-    {{user.typeOfUser}} <br>
+    Name: {{user.name}} <br>
+    Email: {{user.email}} <br>
+    PM: {{user.typeOfUser}} <br>
     <button ng-click="usersVm.deleteUser(user)">Delete</button>
     <a ui-sref="editUser({id: user._id})">Edit</a>
     <p>==============</p>

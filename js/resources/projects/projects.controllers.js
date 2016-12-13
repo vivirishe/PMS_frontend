@@ -40,7 +40,7 @@
     function addProject() {
       ProjectResource.save(vm.newProject).$promise.then(function(jsonProject) {
         vm.newProject = {};
-        $state.go('projectsList')
+        $state.go('allProjects')
       });
     };
   };
@@ -59,14 +59,14 @@
     vm.project = {};
     vm.updateProject = updateProject;
 
-    ProjectResource.get({id: $stateParams.id}).promise.then(function(jsonProject) {
+    ProjectResource.get({id: $stateParams.id}).$promise.then(function(jsonProject) {
       vm.project = jsonProject;
     });
 
     function updateProject() {
       ProjectResource.update(vm.project).$promise.then(function(editedProject) {
         vm.project = editedProject;
-        $state.go('projectsList')
+        $state.go('allProjects')
       })
     }
   }

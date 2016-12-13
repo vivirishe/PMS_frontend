@@ -1,0 +1,14 @@
+<h3>Add new Project</h3>
+<form ng-submit="projectNewVm.addProject()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" ng-model="projectNewVm.newProject.name">
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <input type="text" id="description" ng-model="projectNewVm.newProject.description">
+  </div>
+  <div>
+    <input type="submit" value="Add Project">
+  </div>
+</form>
