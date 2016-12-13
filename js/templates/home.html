@@ -1,22 +1,9 @@
-<h1>Sign In</h1>
-<form ng-submit="userNewVm.addUser()">
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" ng-model="userNewVm.newUser.name">
-  </div>
-  <div>
-    <label for="email">Email:</label>
-    <input type="text" id="email" ng-model="userNewVm.newUser.email">
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" ng-model="userNewVm.newUser.password">
-  </div>
-  <div>
-    <label for="typeOfUser">PM: </label>
-    <input type="checkbox" id="typeOfUser" ng-model="userNewVm.newUser.typeOfUser">
-  </div>
-  <div>
-    <input type="submit" value="Add User">
-  </div>
-</form>
+
+<nav>
+  <a ui-sref="allUsers">See all users</a>
+  <a ui-sref="newUser">Add User</a>
+</nav>
+
+
+<a ui-sref="login" type="button">Log In</a>
+<a ui-sref="newUser" type="button">Sign Up</a>

@@ -1,0 +1,14 @@
+<h3>Log In</h3>
+<form ng-submit="logInVm.submitLogIn()">
+  <div>
+    <label for="email">Email:</label>
+    <input type="text" id="email" ng-model="logInVm.logIn.email">
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" ng-model="logInVm.logIn.password">
+  </div>
+  <div>
+    <input type="submit" value="Log In">
+  </div>
+</form>

@@ -3,19 +3,12 @@
   angular.module("TPMS")
     .controller("SignInController", SignInController);
 
-  SignInController.$inject = ["$log", "authService", "userService", "$state"];
+  SignInController.$inject = ["$log", "authService", "UserResource", "$state"];
 
-  function SignInController($log, authService, userService, $state) {
+  function SignInController($log, authService, UserResource, $state) {
     var vm = this;
 
     //BINDINGS
-    vm.signUp = {
-      name: "",
-      email: "",
-      password: "",
-      passwordConfirmation: ""
-    };
-    vm.submitSignUp = submitSignUp;
     vm.logIn = {
       email: "",
       password: ""
@@ -23,8 +16,20 @@
     vm.submitLogIn = submitLogIn;
     vm.conflict = false;
 
-    function submitSignUp() {
-      
+    function submitLogIn() {
+      authService
+        .logIn(vm.logIn)
+        .then(
+          function(decodedToken) {
+            $log.info('Logged in!', decodedToken);
+            $state.go('allUsers');
+          },
+          //on Error
+          function(err) {
+            $log.info('Error:', err);
+          }
+        );
     }
+    $log.info('SignInController loaded!');
   }
 }());

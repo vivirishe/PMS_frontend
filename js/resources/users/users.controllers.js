@@ -7,7 +7,7 @@
     .controller('UserEditController', UserEditController);
 
   UserListController.$inject = ['UserResource'];
-  UserNewController.$inject = ['UserResource', '$state'];
+  UserNewController.$inject = ['UserResource', '$state', 'authService'];
   UserShowController.$inject = ['UserResource', '$stateParams'];
   UserEditController.$inject = ['UserResource', '$state', '$stateParams'];
 
@@ -32,13 +32,15 @@
     };
   };
 
-  function UserNewController(UserResource, $state) {
+  function UserNewController(UserResource, $state, authService) {
     var vm = this;
     vm.newUser = {};
     vm.addUser = addUser;
 
     function addUser() {
-      UserResource.save(vm.newUser).$promise.then(function(jsonUser) {
+      UserResource.save(vm.newUser).$promise.then(function() {
+        authService.logIn(vm.newUser)
+      }).then(function(jsonUser) {
         vm.newUser = {};
         $state.go('allUsers')
       });

@@ -5,12 +5,8 @@
     <title>Telecom PM Software</title>
   </head>
   <body>
-    <nav>
-      <a ui-sref="allUsers">See all users</a>
-      <a ui-sref="newUser">Add User</a>
 
-      <div ui-view></div>
-    </nav>
+    <div ui-view></div>
 
     <script src="js/auth/jwt-decode.2.0.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
@@ -27,5 +23,6 @@
     <script src="js/config/tokenSigning.service.js"></script>
     <script src="js/auth/auth.service.js"></script>
     <script src="js/auth/token.service.js"></script>
+    <script src="js/resources/signin/signin.controller.js"></script>
   </body>
 </html>

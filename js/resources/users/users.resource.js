@@ -33,5 +33,11 @@
       controller: 'UserEditController',
       controllerAs: 'userEditVm'
     })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'js/templates/login.html',
+      controller: 'SignInController',
+      controllerAs: 'logInVm'
+    })
   }
 }());
