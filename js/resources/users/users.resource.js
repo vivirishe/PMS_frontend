@@ -17,7 +17,7 @@
     $stateProvider
     .state('allUsers', {
       url: '/users',
-      templateUrl: 'js/resources/users/user-show.html',
+      templateUrl: 'js/resources/users/user-list.html',
       controller: 'UserListController',
       controllerAs: 'usersVm'
     })

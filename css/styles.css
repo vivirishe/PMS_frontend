@@ -6,15 +6,17 @@ h1, h2, h3 {
   font-family: 'Bungee', cursive;
 }
 
-.navbar{
+.navbarContainer{
   font-family: 'Yatra One', cursive;
-  margin: 0 auto;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .container{
-  background: rgba(82, 197, 140, 0.2);
+  background: rgba(226, 242, 234, 0.9);
   margin: 0 auto;
-  border: 10px;
+  border: black solid 2px;
+  border-radius: 7px;
 }
 
 body {
