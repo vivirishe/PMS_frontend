@@ -19,7 +19,6 @@
 
     UserResource.query().$promise.then( function(data) {
       vm.users = data;
-      console.log(vm.currentUser.data)
     });
 
     function deleteUser(userToDelete) {

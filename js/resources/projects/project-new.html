@@ -10,7 +10,13 @@
       <input type="text" id="description" ng-model="projectNewVm.newProject.description">
     </div>
     <div>
+      <label for="user">User:</label>
+      <select id="user" ng-model="projectNewVm.newProject.user">
+        <option ng-repeat="user in projectNewVm.users" value="{{user.name}}">{{user.name}}</option>
+      </select>
+    </div>
+    <div>
       <input type="submit" value="Add Project">
     </div>
-  </form>  
+  </form>
 </div>

@@ -6,8 +6,8 @@
       Name: {{user.name}} <br>
       Email: {{user.email}} <br>
       PM: {{user.typeOfUser}} <br>
-      <button ng-click="usersVm.deleteUser(user)">Delete</button>
-      <a ui-sref="editUser({id: user._id})">Edit</a>
+      <button ng-click="usersVm.deleteUser(user)" class="navbar-brand" class="btn btn-primary">Delete</button>
+      <a ui-sref="editUser({id: user._id})" class="navbar-brand">Edit</a>
       <p>==============</p>
     </li>
   </ul>

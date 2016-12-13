@@ -1,5 +1,5 @@
 (function() {
   'use strict';
-  angular.module("TPMS", ['ui.router', 'ngResource']);
+  angular.module("TPMS", ['ui.router', 'ngResource', 'ui.bootstrap']);
 
 }());
