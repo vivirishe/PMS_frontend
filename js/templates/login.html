@@ -2,15 +2,19 @@
   <h3>Log In</h3>
   <form ng-submit="logInVm.submitLogIn()">
     <div>
-      <label for="email">Email:</label>
-      <input type="text" id="email" ng-model="logInVm.logIn.email">
+      <md-input-container>
+        <label for="email">Email:</label>
+        <input type="text" id="email" ng-model="logInVm.logIn.email">
+      </md-input-container>
     </div>
     <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" ng-model="logInVm.logIn.password">
+      <md-input-container>
+        <label for="password">Password:</label>
+        <input type="password" id="password" ng-model="logInVm.logIn.password">
+      </md-input-container>
     </div>
     <div>
-      <md-button type="submit">Log In</md-button>
+      <md-button class="md-raised" type="submit">Log In</md-button>
     </div>
   </form>
 </div>
