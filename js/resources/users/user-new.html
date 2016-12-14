@@ -26,12 +26,11 @@
       </md-input-container>
     </div>
     <div>
-      <label for="typeOfUser">PM: </label>
-      <md-checkbox id="typeOfUser" ng-model="userNewVm.newUser.typeOfUser"></md-checkbox>
+      <md-checkbox id="typeOfUser" ng-model="userNewVm.newUser.typeOfUser" aria-label="PM">Project Manager ?</md-checkbox>
       <!-- <input type="checkbox" id="typeOfUser" ng-model="userNewVm.newUser.typeOfUser"> -->
     </div>
     <div>
-      <md-button type="submit">Add User</md-button>
+      <md-button class="md-raised" type="submit">Add User</md-button>
     </div>
   </form>
 </div>
