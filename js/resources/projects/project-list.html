@@ -6,7 +6,7 @@
       Description: {{project.description}} <br>
       Tasks:
       <div ng-repeat="task in project.tasks">
-        {{task.description}}
+        - {{task.description}}
         <input type="checkbox" ng-model="task.completed">
       </div>
       <button ng-click="projectsVm.deleteProject(project)">Delete</button>
