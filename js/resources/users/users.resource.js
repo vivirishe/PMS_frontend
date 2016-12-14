@@ -33,11 +33,17 @@
       controller: 'UserEditController',
       controllerAs: 'userEditVm'
     })
+    .state('showUser', {
+      url: '/users/show/:id',
+      templateUrl: 'js/resources/users/user-show.html',
+      controller: 'UserShowController',
+      controllerAs: 'userShowVm'
+    })
     .state('login', {
       url: '/login',
       templateUrl: 'js/templates/login.html',
       controller: 'SignInController',
       controllerAs: 'logInVm'
-    })
+    });
   }
 }());
