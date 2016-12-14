@@ -3,9 +3,9 @@
   <ul ng-repeat="project in projectListVm.projects">
     <li>
       Name: {{project.name}} <br>
-      <md-button ui-sref="showProject({id: project._id})">More Info</md-button>
-      <md-button class="delete-btn" ng-click="projectListVm.deleteProject(project)">Delete</md-button>
-      <md-button ui-sref="editProject({id: project._id})">Edit</md-button>
+      <md-button class="md-raised" ui-sref="showProject({id: project._id})">More Info</md-button>
+      <md-button class="md-raised" class="delete-btn" ng-click="projectListVm.deleteProject(project)">Delete</md-button>
+      <md-button class="md-raised" ui-sref="editProject({id: project._id})">Edit</md-button>
     </li>
   </ul>
 </div>
