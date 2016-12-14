@@ -40,11 +40,16 @@
 
     function addUser() {
       UserResource.save(vm.newUser).$promise.then(function() {
-        authService.logIn(vm.newUser)
-      }).then(function(jsonUser) {
-        vm.newUser = {};
-        $state.go('allUsers')
-      });
+        if(!authService.isLoggedIn()){
+          authService.logIn(vm.newUser).then(function() {
+            vm.newUser = {};
+            $state.go('allUsers')
+          })
+        } else {
+          vm.newUser = {};
+          $state.go('allUsers')
+        }
+      })
     };
   };
 

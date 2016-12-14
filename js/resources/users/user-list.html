@@ -5,8 +5,10 @@
     <li ng-repeat="user in usersVm.users">
       Name: {{user.name}} <br>
       <md-button ui-sref="showUser({id: user._id})">More info</md-button>
-      <md-button class="delete-btn" ng-click="usersVm.deleteUser(user)">Delete</md-button>
-      <md-button ui-sref="editUser({id: user._id})">Edit</md-button>
+      <div ng-show="usersVm.currentUser.typeOfUser">
+        <md-button class="delete-btn" ng-click="usersVm.deleteUser(user)">Delete</md-button>
+        <md-button ui-sref="editUser({id: user._id})">Edit</md-button>
+      </div>
     </li>
   </ul>
 </div>
