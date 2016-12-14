@@ -14,6 +14,9 @@
       <!-- <select id="user" ng-model="projectNewVm.newProject.user">
         <option ng-repeat="user in projectNewVm.users" value="{{user.name}}">{{user.name}}</option>
       </select> -->
+      <md-select placeholder="Assign to User" ng-model="projectNewVm.newProject.user" style="min-width: 200px;">
+        <md-option ng-value="user" ng-repeat="user in projectNewVm.users">{{user.name}}</md-option>
+      </md-select>
     </div>
     <div>
       <input type="submit" value="Add Project">

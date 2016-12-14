@@ -73,7 +73,6 @@
     });
 
     function addNewTask() {
-      console.log('fired')
       vm.project.tasks.push({description: "", completed: false});
     }
 
