@@ -1,6 +1,23 @@
 <div class="container">
-  <h3>Project:</h3>
-  <div>
+  <h3>Project | {{projectShowVm.project.name}} |</h3>
+
+  <md-list>
+    <md-list-item class="md-5-line">
+      <div class="md-list-item-text">
+        <h4 id="names">{{projectShowVm.project.name}}</h4>
+        <h5>Description: {{projectShowVm.project.description}}</h5>
+      </div>
+    </md-list-item>
+    <md-list-tem class="md-5-line">
+      <div ng-repeat="task in projectShowVm.project.tasks">
+        <h5>{{task.user.name}}</h5> in charge of:  <h5>{{task.description}}
+        <md-checkbox ng-model="task.completed" aria-label="task"></md-checkbox>
+        </h5>
+      </div>
+    </md-list-tem>
+  </md-list>
+
+  <!-- <h4 id="names">
     Name: {{projectShowVm.project.name}} <br>
     Description: {{projectShowVm.project.description}} <br>
     Tasks: <br>
@@ -8,5 +25,6 @@
       {{task.user.name}} in charge of {{task.description}}
       <md-checkbox ng-model="task.completed" aria-label="task"></md-checkbox>
     </div>
-  </div>
+  </h4> -->
+
 </div>
