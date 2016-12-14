@@ -32,5 +32,11 @@
       controller: 'ProjectEditController',
       controllerAs: 'projectEditVm'
     })
+    .state('showProject', {
+      url: '/projects/show/:id',
+      templateUrl: 'js/resources/projects/project-show.html',
+      controller: 'ProjectShowController',
+      controllerAs: 'projectShowVm'
+    })
   }
 }());

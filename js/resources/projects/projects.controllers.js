@@ -8,7 +8,7 @@
 
   ProjectListController.$inject = ['ProjectResource', 'UserResource'];
   ProjectNewController.$inject = ['ProjectResource', '$state', 'UserResource'];
-  ProjectShowController.$inject = ['ProjectResource', '$stateParams'];
+  ProjectShowController.$inject = ['ProjectResource', '$stateParams', 'UserResource'];
   ProjectEditController.$inject = ['ProjectResource', '$state', '$stateParams'];
 
   function ProjectListController(ProjectResource, UserResource) {
@@ -59,15 +59,20 @@
     };
   };
 
-  function ProjectShowController(ProjectResource, $stateParams) {
+  function ProjectShowController(ProjectResource, $stateParams, UserResource) {
     var vm = this;
     vm.project = {};
+    vm.users = [];
 
-    ProjectResource.get({id: $stateParams.id}).promise.then(function(jsonProject) {
+    ProjectResource.get({id: $stateParams.id}).$promise.then(function(jsonProject) {
       console.log(jsonProject)
       vm.project = jsonProject;
     });
+    UserResource.query().$promise.then( function(data) {
+      vm.users = data;
+    });
   };
+
 
   function ProjectEditController(ProjectResource, $state, $stateParams) {
     var vm = this;
