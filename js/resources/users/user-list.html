@@ -6,8 +6,8 @@
       Name: {{user.name}} <br>
       Email: {{user.email}} <br>
       PM: {{user.typeOfUser}} <br>
-      <md-button ng-click="usersVm.deleteUser(user)">Delete</md-button>
-      <a ui-sref="editUser({id: user._id})">Edit</a>
+      <md-button class="delete-btn" ng-click="usersVm.deleteUser(user)">Delete</md-button>
+      <md-button ui-sref="editUser({id: user._id})">Edit</md-button>
       <p>==============</p>
     </li>
   </ul>

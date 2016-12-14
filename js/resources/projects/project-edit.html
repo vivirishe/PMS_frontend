@@ -10,15 +10,15 @@
       <input type="text" id="description" ng-model="projectEditVm.project.description">
     </div>
     <div ng-repeat="task in projectEditVm.project.tasks">
-      <label for="tasks">Edit Tasks:</label>
+      <label for="tasks">Task:</label>
       <input type="text" id="tasks" ng-model="task.description">
       <input type="checkbox" ng-model="task.completed">
     </div>
     <div>
-      <button type='button' ng-click="projectEditVm.addNewTask()">Add New Task</button>
+      <md-button type="button" ng-click="projectEditVm.addNewTask()">+ Add New Task</md-button>
     </div>
     <div>
-      <input type="submit" value="Edit Project">
+      <md-button type="submit">Edit Project</md-button>
     </div>
   </form>
 </div>

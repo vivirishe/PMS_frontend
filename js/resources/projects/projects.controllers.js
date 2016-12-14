@@ -24,7 +24,7 @@
     });
 
     function deleteProject(projectToDelete) {
-      ProjectResource.delete({id:projectToDelete._id}).promise.then(function(response) {
+      ProjectResource.delete({id:projectToDelete._id}).$promise.then(function(response) {
         if(response.message) {
           console.log(response.message);
           vm.projects = vm.projects.filter(function(project) {
@@ -37,13 +37,19 @@
 
   function ProjectNewController(ProjectResource, $state, UserResource) {
     var vm = this;
-    vm.newProject = {};
+    vm.newProject = {tasks: []};
     vm.addProject = addProject;
     vm.users = [];
+    vm.addNewTask = addNewTask;
 
     UserResource.query().$promise.then( function(data) {
       vm.users = data;
     });
+
+    function addNewTask() {
+      vm.newProject.tasks.push({description: "", completed: false});
+      console.log(vm.newProject)
+    }
 
     function addProject() {
       ProjectResource.save(vm.newProject).$promise.then(function(jsonProject) {
@@ -58,6 +64,7 @@
     vm.project = {};
 
     ProjectResource.get({id: $stateParams.id}).promise.then(function(jsonProject) {
+      console.log(jsonProject)
       vm.project = jsonProject;
     });
   };

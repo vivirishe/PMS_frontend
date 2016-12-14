@@ -2,6 +2,7 @@
   <h3>Add new User</h3>
   <form ng-submit="userNewVm.addUser()">
     <div>
+      
       <label for="name">Name:</label>
       <input type="text" id="name" ng-model="userNewVm.newUser.name">
     </div>
@@ -22,7 +23,7 @@
       <input type="checkbox" id="typeOfUser" ng-model="userNewVm.newUser.typeOfUser">
     </div>
     <div>
-      <input type="submit" value="Add User">
+      <md-button type="submit">Add User</md-button>
     </div>
   </form>
 </div>

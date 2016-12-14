@@ -4,13 +4,13 @@
     <li>
       Name: {{project.name}} <br>
       Description: {{project.description}} <br>
-      Tasks:
+      Tasks: <br>
       <div ng-repeat="task in project.tasks">
         - {{task.description}}
         <input type="checkbox" ng-model="task.completed">
       </div>
-      <button ng-click="projectsVm.deleteProject(project)">Delete</button>
-      <a ui-sref="editProject({id: project._id})">Edit</a>
+      <md-button class="delete-btn" ng-click="projectListVm.deleteProject(project)">Delete</md-button>
+      <md-button ui-sref="editProject({id: project._id})">Edit</md-button>
       <p>==============</p>
     </li>
   </ul>
