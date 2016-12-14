@@ -1,6 +1,19 @@
 <div class="container">
   <h3>Projects</h3>
-  <ul ng-repeat="project in projectListVm.projects">
+  <md-list>
+    <md-list-item class="md-3-line" ng-repeat="project in projectListVm.projects">
+      <img src="http://static.wixstatic.com/media/8f879a_338189180c5e4e778829b5b736c60241.jpg_srz_1271_953_85_22_0.50_1.20_0.00_jpg_srz" class="md-avatar">
+      <div class="md-list-item-text">
+        <h4 id="names">{{project.name}}</h4>
+      </div>
+      <md-button class="md-raised" ui-sref="showProject({id: project._id})">More Info</md-button>
+      <md-button class="md-raised" class="delete-btn" ng-click="projectListVm.deleteProject(project)">Delete</md-button>
+      <md-button class="md-raised" ui-sref="editProject({id: project._id})">Edit</md-button>
+    </md-list-item>
+  </md-list>
+
+
+  <!-- <ul ng-repeat="project in projectListVm.projects">
     <div class="list">
       <li>
         Name: {{project.name}} <br>
@@ -9,5 +22,5 @@
         <md-button class="md-raised" ui-sref="editProject({id: project._id})">Edit</md-button>
       </li>
     </div>
-  </ul>
+  </ul> -->
 </div>
