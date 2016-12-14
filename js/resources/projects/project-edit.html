@@ -2,23 +2,30 @@
   <h3>Edit Project</h3>
   <form ng-submit="projectEditVm.updateProject()">
     <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" ng-model="projectEditVm.project.name">
+      <md-input-container>
+        <label for="name">Name:</label>
+        <input type="text" id="name" ng-model="projectEditVm.project.name">
+      </md-input-container>
     </div>
     <div>
-      <label for="description">Description:</label>
-      <input type="text" id="description" ng-model="projectEditVm.project.description">
+      <md-input-container>
+        <label for="description">Description:</label>
+        <input type="text" id="description" ng-model="projectEditVm.project.description">
+      </md-input-container>
     </div>
     <div ng-repeat="task in projectEditVm.project.tasks">
-      <label for="tasks">Task:</label>
-      <input type="text" id="tasks" ng-model="task.description">
-      <input type="checkbox" ng-model="task.completed">
+      <md-input-container>
+        <label for="tasks">Task:</label>
+        <input type="text" id="tasks" ng-model="task.description">
+      </md-input-container>
+      <md-checkbox id="taskCompleted" ng-model="task.completed" aria-label="taskCompleted">Task Completed ?</md-checkbox>
+      <!-- <input type="checkbox" ng-model="task.completed"> -->
     </div>
     <div>
       <md-button type="button" ng-click="projectEditVm.addNewTask()">+ Add New Task</md-button>
     </div>
     <div>
-      <md-button type="submit">Edit Project</md-button>
+      <md-button class="md-raised" type="submit">Edit Project</md-button>
     </div>
   </form>
 </div>
