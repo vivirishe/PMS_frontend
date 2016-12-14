@@ -1,11 +1,13 @@
 <div class="container">
   <h3>Projects</h3>
   <ul ng-repeat="project in projectListVm.projects">
-    <li>
-      Name: {{project.name}} <br>
-      <md-button class="md-raised" ui-sref="showProject({id: project._id})">More Info</md-button>
-      <md-button class="md-raised" class="delete-btn" ng-click="projectListVm.deleteProject(project)">Delete</md-button>
-      <md-button class="md-raised" ui-sref="editProject({id: project._id})">Edit</md-button>
-    </li>
+    <div class="list">
+      <li>
+        Name: {{project.name}} <br>
+        <md-button class="md-raised" ui-sref="showProject({id: project._id})">More Info</md-button>
+        <md-button class="md-raised" class="delete-btn" ng-click="projectListVm.deleteProject(project)">Delete</md-button>
+        <md-button class="md-raised" ui-sref="editProject({id: project._id})">Edit</md-button>
+      </li>
+    </div>
   </ul>
 </div>
