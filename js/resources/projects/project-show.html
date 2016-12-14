@@ -1,12 +1,13 @@
 <div class="container">
   <h3>Project:</h3>
-  Name: {{projectShowVm.project.name}} <br>
-  Description: {{projectShowVm.project.description}} <br>
-  Tasks: <br>
-  <div ng-repeat="task in projectShowVm.project.tasks">
-    {{task.user.name}} in charge of {{task.description}}
-    <input type="checkbox" ng-model="task.completed">
+  <div>
+    Name: {{projectShowVm.project.name}} <br>
+    Description: {{projectShowVm.project.description}} <br>
+    Tasks: <br>
+    <div ng-repeat="task in projectShowVm.project.tasks">
+      {{task.user.name}} in charge of {{task.description}}
+      <md-checkbox ng-model="task.completed"></md-checkbox>
+      <!-- <input type="checkbox" > -->
+    </div>    
   </div>
-  <p>==============</p>
-
 </div>
