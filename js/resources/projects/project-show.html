@@ -12,6 +12,7 @@
       <div ng-repeat="task in projectShowVm.project.tasks">
         <h5>{{task.user.name}}</h5> in charge of:  <h5>{{task.description}}
         <md-checkbox ng-model="task.completed" aria-label="task"></md-checkbox>
+        <md-button class="delete-btn" ng-click="allProjects()">X</md-button>
         </h5>
       </div>
     </md-list-tem>
