@@ -8,7 +8,7 @@
   UserRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
 
   function UserResource($resource) {
-    return $resource('http://localhost:3000/api/users/:id', {id: '@_id'}, { 'update': { method: 'PATCH'}})
+    return $resource('https://tpm-software.herokuapp.com/api/users/:id', {id: '@_id'}, { 'update': { method: 'PATCH'}})
   }
 
   function UserRouter($stateProvider, $urlRouterProvider) {

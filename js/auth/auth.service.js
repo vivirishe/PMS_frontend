@@ -25,7 +25,7 @@
         return token.decode();
       }
     }
-    
+
     function isLoggedIn() {
       return (token.retrieve() != null);
     }
@@ -33,7 +33,7 @@
     function logIn(data) {
       var promise = $http({
         method: 'POST',
-        url:    'http://localhost:3000/api/token',
+        url:    'https://tpm-software.herokuapp.com/api/token',
         data:   data
       })
       .then(
