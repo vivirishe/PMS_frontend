@@ -12,19 +12,9 @@
       <div ng-repeat="task in projectShowVm.project.tasks">
         <h5>{{task.user.name}}</h5> in charge of:  <h5>{{task.description}}
         <md-checkbox ng-model="task.completed" aria-label="task"></md-checkbox>
+        <md-button ng-click="projectShowVm.deleteTask(task)">X</md-button>
         </h5>
       </div>
     </md-list-tem>
   </md-list>
-
-  <!-- <h4 id="names">
-    Name: {{projectShowVm.project.name}} <br>
-    Description: {{projectShowVm.project.description}} <br>
-    Tasks: <br>
-    <div ng-repeat="task in projectShowVm.project.tasks">
-      {{task.user.name}} in charge of {{task.description}}
-      <md-checkbox ng-model="task.completed" aria-label="task"></md-checkbox>
-    </div>
-  </h4> -->
-
 </div>

@@ -9,7 +9,7 @@
   ProjectListController.$inject = ['ProjectResource', 'UserResource'];
   ProjectNewController.$inject = ['ProjectResource', '$state', 'UserResource'];
   ProjectShowController.$inject = ['ProjectResource', '$stateParams', 'UserResource'];
-  ProjectEditController.$inject = ['ProjectResource', '$state', '$stateParams'];
+  ProjectEditController.$inject = ['ProjectResource', '$state', '$stateParams', 'UserResource'];
 
   function ProjectListController(ProjectResource, UserResource) {
     var vm = this;
@@ -63,6 +63,7 @@
     var vm = this;
     vm.project = {};
     vm.users = [];
+    vm.deleteTask = deleteTask;
 
     ProjectResource.get({id: $stateParams.id}).$promise.then(function(jsonProject) {
       console.log(jsonProject)
@@ -71,19 +72,34 @@
     UserResource.query().$promise.then( function(data) {
       vm.users = data;
     });
+
+    function deleteTask(taskToDelete) {
+      console.log('delete task?')
+      ProjectResource.delete({id:taskToDelete._id}).$promise.then(function(response) {
+        if(response.message) {
+          console.log(response.message)
+          vm.project.tasks = vm.project.tasks.filter(function(task) {
+            return task != taskToDelete;
+          })
+        }
+      })
+    }
   };
 
 
-  function ProjectEditController(ProjectResource, $state, $stateParams) {
+  function ProjectEditController(ProjectResource, $state, $stateParams, UserResource) {
     var vm = this;
     vm.project = {};
     vm.updateProject = updateProject;
     vm.addNewTask = addNewTask;
+    vm.users = [];
 
     ProjectResource.get({id: $stateParams.id}).$promise.then(function(jsonProject) {
       vm.project = jsonProject;
     });
-
+    UserResource.query().$promise.then( function(data) {
+      vm.users = data;
+    });
     function addNewTask() {
       vm.project.tasks.push({description: "", completed: false});
     }

@@ -19,7 +19,9 @@
         <input type="text" id="tasks" ng-model="task.description">
       </md-input-container>
       <md-checkbox id="taskCompleted" ng-model="task.completed" aria-label="taskCompleted">Task Completed ?</md-checkbox>
-      <!-- <input type="checkbox" ng-model="task.completed"> -->
+      <md-select placeholder="{{task.user.name}}" ng-model="task.user" style="min-width: 200px;">
+        <md-option ng-value="user" ng-repeat="user in projectEditVm.users">{{user.name}}</md-option>
+      </md-select>
     </div>
     <div>
       <md-button type="button" ng-click="projectEditVm.addNewTask()">+ Add New Task</md-button>
