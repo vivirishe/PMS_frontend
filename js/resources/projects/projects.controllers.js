@@ -63,6 +63,7 @@
     var vm = this;
     vm.project = {};
     vm.users = [];
+    vm.deleteTask = deleteTask;
 
     ProjectResource.get({id: $stateParams.id}).$promise.then(function(jsonProject) {
       console.log(jsonProject)
@@ -71,6 +72,18 @@
     UserResource.query().$promise.then( function(data) {
       vm.users = data;
     });
+
+    function deleteTask(taskToDelete) {
+      console.log('delete task?')
+      ProjectResource.delete({id:taskToDelete._id}).$promise.then(function(response) {
+        if(response.message) {
+          console.log(response.message)
+          vm.project.tasks = vm.project.tasks.filter(function(task) {
+            return task != taskToDelete;
+          })
+        }
+      })
+    }
   };
 
 
