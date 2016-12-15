@@ -9,7 +9,7 @@
   ProjectListController.$inject = ['ProjectResource', 'UserResource'];
   ProjectNewController.$inject = ['ProjectResource', '$state', 'UserResource'];
   ProjectShowController.$inject = ['ProjectResource', '$stateParams', 'UserResource'];
-  ProjectEditController.$inject = ['ProjectResource', '$state', '$stateParams'];
+  ProjectEditController.$inject = ['ProjectResource', '$state', '$stateParams', 'UserResource'];
 
   function ProjectListController(ProjectResource, UserResource) {
     var vm = this;
@@ -74,16 +74,19 @@
   };
 
 
-  function ProjectEditController(ProjectResource, $state, $stateParams) {
+  function ProjectEditController(ProjectResource, $state, $stateParams, UserResource) {
     var vm = this;
     vm.project = {};
     vm.updateProject = updateProject;
     vm.addNewTask = addNewTask;
+    vm.users = [];
 
     ProjectResource.get({id: $stateParams.id}).$promise.then(function(jsonProject) {
       vm.project = jsonProject;
     });
-
+    UserResource.query().$promise.then( function(data) {
+      vm.users = data;
+    });
     function addNewTask() {
       vm.project.tasks.push({description: "", completed: false});
     }
