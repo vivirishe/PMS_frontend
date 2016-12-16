@@ -33,7 +33,7 @@
     function logIn(data) {
       var promise = $http({
         method: 'POST',
-        url:    'https://tpm-software.herokuapp.com/api/token',
+        url:    'https://tpm-software.herokuapp.com/api/users/token',
         data:   data
       })
       .then(

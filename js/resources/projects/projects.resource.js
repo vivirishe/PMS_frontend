@@ -8,7 +8,7 @@
   ProjectRouter.$inject = ['$stateProvider', '$urlRouterProvider'];
 
   function ProjectResource($resource) {
-    return $resource('https://tpm-software.herokuapp.com/projects/api/projects/:id', {id: '@_id'}, { 'update': { method: 'PATCH'}})
+    return $resource('https://tpm-software.herokuapp.com/api/projects/:id', {id: '@_id'}, { 'update': { method: 'PATCH'}})
   }
 
   function ProjectRouter($stateProvider, $urlRouterProvider) {

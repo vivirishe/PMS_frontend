@@ -8,7 +8,7 @@
 
   ProjectListController.$inject = ['ProjectResource', 'UserResource'];
   ProjectNewController.$inject = ['ProjectResource', '$state', 'UserResource'];
-  ProjectShowController.$inject = ['ProjectResource', '$stateParams', 'UserResource'];
+  ProjectShowController.$inject = ['ProjectResource', '$stateParams', 'UserResource', '$http'];
   ProjectEditController.$inject = ['ProjectResource', '$state', '$stateParams', 'UserResource'];
 
   function ProjectListController(ProjectResource, UserResource) {
@@ -59,7 +59,7 @@
     };
   };
 
-  function ProjectShowController(ProjectResource, $stateParams, UserResource) {
+  function ProjectShowController(ProjectResource, $stateParams, UserResource, $http) {
     var vm = this;
     vm.project = {};
     vm.users = [];
@@ -69,20 +69,20 @@
       console.log(jsonProject)
       vm.project = jsonProject;
     });
+
     UserResource.query().$promise.then( function(data) {
       vm.users = data;
     });
 
     function deleteTask(taskToDelete) {
       console.log('delete task?')
-      ProjectResource.delete({id:taskToDelete._id}).$promise.then(function(response) {
-        if(response.message) {
-          console.log(response.message)
+      $http.delete('http://localhost:3000/api/projects/'+ $stateParams.id + '/task/' + taskToDelete._id).then(function(response) {
+        if(response.data.message) {
           vm.project.tasks = vm.project.tasks.filter(function(task) {
             return task != taskToDelete;
           })
         }
-      })
+      });
     }
   };
 
