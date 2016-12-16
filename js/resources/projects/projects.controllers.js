@@ -76,7 +76,7 @@
 
     function deleteTask(taskToDelete) {
       console.log('delete task?')
-      $http.delete('http://localhost:3000/api/projects/'+ $stateParams.id + '/task/' + taskToDelete._id).then(function(response) {
+      $http.delete('https://tpm-software.herokuapp.com/api/projects/'+ $stateParams.id + '/task/' + taskToDelete._id).then(function(response) {
         if(response.data.message) {
           vm.project.tasks = vm.project.tasks.filter(function(task) {
             return task != taskToDelete;
