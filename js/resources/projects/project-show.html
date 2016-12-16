@@ -2,11 +2,13 @@
   <h3>Project | {{projectShowVm.project.name}} |</h3>
 
   <md-list>
+    <md-divider></md-divider>
     <md-list-item class="md-5-line">
       <div class="md-list-item-text">
         <h4 id="names">{{projectShowVm.project.name}}</h4>
         <h5>Description: {{projectShowVm.project.description}}</h5>
       </div>
+      <md-divider></md-divider>
     </md-list-item>
     <md-list-tem class="md-5-line">
       <div ng-repeat="task in projectShowVm.project.tasks">
@@ -14,6 +16,7 @@
         <md-checkbox ng-model="task.completed" aria-label="task"></md-checkbox>
         <md-button ng-click="projectShowVm.deleteTask(task)">X</md-button>
         </h5>
+        <md-divider></md-divider>
       </div>
     </md-list-tem>
   </md-list>
