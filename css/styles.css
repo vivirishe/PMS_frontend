@@ -21,7 +21,10 @@ h1, h2, h3 {
 }
 
 body {
-  background: rgba(82, 197, 140, 0.7);
+  background-color: rgba(82, 197, 140, 0.7);
+  background-image: url("https://content-static.upwork.com/blog/uploads/sites/4/2009/05/project-management.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 #names {
