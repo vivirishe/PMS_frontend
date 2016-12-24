@@ -16,6 +16,7 @@
         <md-checkbox ng-model="task.completed" aria-label="task"></md-checkbox>
         <md-button ng-click="projectShowVm.deleteTask(task)">X</md-button>
         </h5>
+        <h5>Due Date: {{task.dueDate | date:'MM/dd/yyyy'}}</h5>
         <md-divider></md-divider>
       </div>
     </md-list-tem>
