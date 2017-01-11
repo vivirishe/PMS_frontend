@@ -1,4 +1,4 @@
-#mainTitle, h2, h3 {
+#mainTitle, h2, h3{
   margin-top: 100px;
   color: rgba(6, 12, 74, 0.91);
 }
@@ -7,10 +7,17 @@ h1, h2, h3 {
   font-family: 'Bungee', cursive;
 }
 
-.navbarContainer {
+.navbarContainer, h4 {
   font-family: 'Yatra One', cursive;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+#intro {
+  margin-top: 110px;
+}
+h4{
+  font-size: 2em;
 }
 
 .container {
