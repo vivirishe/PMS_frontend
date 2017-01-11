@@ -19,7 +19,7 @@
         <label for="tasks">Task:</label>
         <input type="text" id="tasks" ng-model="task.description">
       </md-input-container>
-
+      <md-datepicker ng-model="task.dueDate">Select</md-datepicker>
       <md-select placeholder="Assign to User" ng-model="task.user" style="min-width: 200px;">
         <md-option ng-value="user" ng-repeat="user in projectNewVm.users">{{user.name}}</md-option>
       </md-select>
